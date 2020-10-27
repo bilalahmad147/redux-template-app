@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import { decreValue, increValue } from './action'
 
 function CounterInput() {
 
@@ -7,8 +8,8 @@ function CounterInput() {
 
     return (
         <div>
-            <button onClick={()=> dispatch({type: 'ÍNCREMENT'})}>+</button>
-            <button onClick={()=> dispatch({type: 'DECREMENT'})}>-</button>
+            <button onClick={()=> dispatch(increValue())}>+</button>
+            <button onClick={()=> dispatch(decreValue())}>-</button>
         </div>
     )
 }
