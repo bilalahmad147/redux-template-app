@@ -1,12 +1,16 @@
-import React from 'react';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+
+function App({count}) {
+
+  let initialState = 0
+  let [State, setState] = useState(initialState)
+
   return (
-    <div className="App">
-      <h1>Redux Counter App</h1>
-        <Counter />
+    <div>
+      <h1>Counter  : {State}</h1>
+      <button onClick={()=>{setState(++State)}}>Plus</button>
+      <button onClick={()=>{setState(--State)}}>Minus</button>
     </div>
   );
 }
