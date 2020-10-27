@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
+import CounterInput from './Components/CounterInput';
+import CounterOutput from './Components/CounterOutput';
 
 
-function App({count}) {
+function App() {
 
-  let initialState = 0
-  let [State, setState] = useState(initialState)
 
   return (
     <div>
-      <h1>Counter  : {State}</h1>
-      <button onClick={()=>{setState(++State)}}>Plus</button>
-      <button onClick={()=>{setState(--State)}}>Minus</button>
+      <CounterOutput />
+      <CounterInput />
     </div>
   );
 }
