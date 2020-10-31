@@ -12,8 +12,8 @@ function App() {
 
   return (
     <div>
-      <h1>Number of Cakes = {state.numOfCakes}</h1>
-      <h1>Number of icreCream = {state.numOfIceCream}</h1>
+      <h1>Number of Cakes = {state.cake.numOfCakes}</h1>
+      <h1>Number of icreCream = {state.iceCream.numOfIceCream}</h1>
       <button onClick={()=>{dispatch(buyCake())}}>buy Cake</button>
       <button onClick={()=>{dispatch(buyIceCream())}}>buy icreCream</button>
     </div>

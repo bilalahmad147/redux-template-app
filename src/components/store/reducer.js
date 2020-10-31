@@ -1,20 +1,32 @@
+import { combineReducers } from "@reduxjs/toolkit";
 import { BUY_CAKE, BUY_ICECREAM } from "./action";
 
 
-const initial_state = {
-    numOfCakes: 10,
-    numOfIceCream: 10,
+const initStateForCake = {
+    numOfCakes: 10
+}
+
+const initStateForIceCream = {
+    numOfIceCream: 20,
 }
 
 
 
-const cakeReducer = (state = initial_state, action) => {
+const cakeReducer = (state = initStateForCake, action) => {
     switch (action.type) {
         case BUY_CAKE:
             return {
                 ...state,
                 numOfCakes: state.numOfCakes + 1
             }
+        default:
+            return state;
+
+    }
+}
+
+const iceCreamReducer = (state = initStateForIceCream, action) => {
+    switch (action.type) {
         case BUY_ICECREAM:
             return {
                 ...state,
@@ -26,4 +38,9 @@ const cakeReducer = (state = initial_state, action) => {
     }
 }
 
-export default cakeReducer;
+const rootReducer = combineReducers({
+    cake: cakeReducer,
+    iceCream: iceCreamReducer,
+})
+
+export default rootReducer;
