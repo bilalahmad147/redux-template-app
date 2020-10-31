@@ -1,6 +1,4 @@
 import React from 'react';
-import CounterInput from './Components/CounterInput';
-import CounterOutput from './Components/CounterOutput';
 
 
 function App() {
@@ -8,8 +6,7 @@ function App() {
 
   return (
     <div>
-      <CounterOutput />
-      <CounterInput />
+      <h1>hello world</h1>
     </div>
   );
 }
