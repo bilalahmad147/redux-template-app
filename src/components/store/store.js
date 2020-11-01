@@ -1,8 +1,9 @@
-import { applyMiddleware, createAsyncThunk } from '@reduxjs/toolkit';
-import { createStore } from 'redux';
+
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk'
 import reducer from './reducer';
 
 
-const store = createStore(reducer,applyMiddleware(createAsyncThunk));
+const store = createStore(reducer, applyMiddleware(thunk));
 
 export default store;

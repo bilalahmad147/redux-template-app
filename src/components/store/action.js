@@ -8,14 +8,32 @@ export const userRequest = () => {
     }
 }
 
-export const userRequestSuccess = () => {
+export const userRequestSuccess = user => {
     return {
         type: USER_REQUEST_SUCCESS,
+        payload: user,
     }
 }
 
-export const userRequestFail = () => {
+export const userRequestFail = error => {
     return {
         type: USER_REQUEST_FAIL,
+        payload: error,
+    }
+}
+
+export const fetchUsers = () => {
+    return async (dispatch) => {
+        dispatch(userRequest)
+        const res = await fetch('https://jsonplaceholder.typicode.com/users');
+        const data = await res.json();
+        data.then(data => {
+            const user = data.data
+            dispatch(userRequestSuccess(user))
+        })
+            .catch(error => {
+                const errorMsg = error.message
+                dispatch(userRequestFail(errorMsg))
+            })
     }
 }

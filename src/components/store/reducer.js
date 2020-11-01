@@ -6,8 +6,8 @@ const initialState = {
     error: ''
 }
 
-const reducer = (state = initialState, { type, payload }) => {
-    switch (type) {
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
         case USER_REQUEST:
             return {
                 ...state,
@@ -17,14 +17,15 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 loading: false,
-                ...payload
+                users: action.payload,
+                error: ''
             }
         case USER_REQUEST_FAIL:
             return {
                 ...state,
                 loading: false,
                 users: [],
-                ...payload
+                error: action.payload
             }
         default:
             return state
