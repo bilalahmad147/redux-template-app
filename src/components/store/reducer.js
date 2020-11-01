@@ -1,46 +1,34 @@
-import { combineReducers } from "@reduxjs/toolkit";
-import { BUY_CAKE, BUY_ICECREAM } from "./action";
+import { USER_REQUEST, USER_REQUEST_FAIL, USER_REQUEST_SUCCESS } from "./action";
 
-
-const initStateForCake = {
-    numOfCakes: 10
+const initialState = {
+    loading: true,
+    users: [],
+    error: ''
 }
 
-const initStateForIceCream = {
-    numOfIceCream: 20,
-}
-
-
-
-const cakeReducer = (state = initStateForCake, action) => {
-    switch (action.type) {
-        case BUY_CAKE:
+const reducer = (state = initialState, { type, payload }) => {
+    switch (type) {
+        case USER_REQUEST:
             return {
                 ...state,
-                numOfCakes: state.numOfCakes + 1
+                loading: true,
+            }
+        case USER_REQUEST_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                ...payload
+            }
+        case USER_REQUEST_FAIL:
+            return {
+                ...state,
+                loading: false,
+                users: [],
+                ...payload
             }
         default:
-            return state;
-
+            return state
     }
 }
 
-const iceCreamReducer = (state = initStateForIceCream, action) => {
-    switch (action.type) {
-        case BUY_ICECREAM:
-            return {
-                ...state,
-                numOfIceCream: state.numOfIceCream + 1
-            }
-        default:
-            return state;
-
-    }
-}
-
-const rootReducer = combineReducers({
-    cake: cakeReducer,
-    iceCream: iceCreamReducer,
-})
-
-export default rootReducer;
+export default reducer;

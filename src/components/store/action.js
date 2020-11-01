@@ -1,14 +1,21 @@
-export const BUY_CAKE = 'BUY';
-export const BUY_ICECREAM = 'BUY_ICE';
+export const USER_REQUEST = 'USER_REQUEST'
+export const USER_REQUEST_SUCCESS = 'USER_REQUEST_SUCCESS'
+export const USER_REQUEST_FAIL = 'USER_REQUEST_FAIL'
 
-export const buyCake = () => {
+export const userRequest = () => {
     return {
-        type: BUY_CAKE,
+        type: USER_REQUEST,
     }
 }
 
-export const buyIceCream = () => {
+export const userRequestSuccess = () => {
     return {
-        type: BUY_ICECREAM,
+        type: USER_REQUEST_SUCCESS,
+    }
+}
+
+export const userRequestFail = () => {
+    return {
+        type: USER_REQUEST_FAIL,
     }
 }
